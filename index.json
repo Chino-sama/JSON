@@ -1,4 +1,7 @@
-{
+[{
 	"nombre": "Que wen nombre",
 	"apellido": "Apeido"
-}
+}, {
+	"nombre": "Otro wen nombre",
+	"apellido": "Otro apeido"
+}]

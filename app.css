@@ -2,4 +2,7 @@
 	padding: 7px;
 	border-radius: 5px;
 	outline: none;
+	border: 1px solid #9cd2ef;
 }
+
+.hide { display: none; }

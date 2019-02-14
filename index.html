@@ -5,10 +5,31 @@
 	<link rel="stylesheet" type="text/css" href="app.css">
 	<script>
 		function loadData() {
-			//crear petición
+			// crear petición
+			let xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				console.log(this.readyState, this.status, this.statusText);
+			}
+			
+			xhr.open('GET', 'https://chino-sama.github.io/JSON/index.json');
+
 			// procesar petición
-			// modificar contenido de html
+			xhr.onload = function () {
+				if (this.readyState === 4 && this.status === 200) {
+					// modificar contenido de html
+					let res = JSON.parse(this.response);
+					console.log(res);
+					// esconder el botón
+
+
+				} else {
+					// Ps no iegó
+					alert('Ejplotó' + this.status);
+				}
+			}
+
 			// enviar petición
+			xhr.send();
 		}
 	</script>
 </head>
