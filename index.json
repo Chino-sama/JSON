@@ -1,7 +1,43 @@
 [{
-	"nombre": "Que wen nombre",
-	"apellido": "Apeido"
+	"nombre": "Luis Manuel",
+	"apellido": "Juárez",
+	"birth": "29/11/1998",
+	"likes": [
+		"comer",
+		"poder dormir 8 horas",
+		"caminar"
+	],
+	"dislikes": [
+		"caminar",
+		"no poder dormir",
+		"la banda"
+	]
 }, {
-	"nombre": "Otro wen nombre",
-	"apellido": "Otro apeido"
+	"nombre": "Jessie",
+	"apellido": "Sánchez",
+	"birth": "07/01/1998",
+	"likes": [
+		"chocolate",
+		"color azul",
+		"corgis"
+	],
+	"dislikes": [
+		"cebolla",
+		"aguacate",
+		"agua"
+	]
+}, {
+	"nombre": "Erick",
+	"apellido": "Belcebú",
+	"birth": "20/04/1998",
+	"likes": [
+		"pentagramas",
+		"666",
+		"paganismo"
+	],
+	"dislikes": [
+		"inquisición",
+		"cruces",
+		"agua"
+	]
 }]

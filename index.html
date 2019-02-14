@@ -18,10 +18,30 @@
 				if (this.readyState === 4 && this.status === 200) {
 					// modificar contenido de html
 					let res = JSON.parse(this.response);
-					console.log(res);
+					let emptyDiv = document.getElementById("loaded-info");
+
+					let html = '';
+					res.forEach((item) => {
+						html += '<p>';
+						html += 
+							item.nombre + 
+							' ' + 
+							item.apellido +
+							' nació el' +
+							item.birth +
+							' ' +
+							item.likes.forEach((like) => {
+								return like + 'y ';
+							}) +
+							item.dislikes.forEach((dis) => {
+								return dis + 'y ';
+							})
+¡						html += '</p>';
+					});
+					emptyDiv.insertAdjacentHTML('beforeend', html);
 					// esconder el botón
-
-
+					let btn = document.getElementById("btn");
+					btn.className = "hide";
 				} else {
 					// Ps no iegó
 					alert('Ejplotó' + this.status);
