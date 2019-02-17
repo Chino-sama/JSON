@@ -17,27 +17,27 @@
 	"apellido": "Sánchez",
 	"birth": "07/01/1998",
 	"likes": [
-		"chocolate",
-		"color azul",
-		"corgis"
+		"el chocolate",
+		"el color azul",
+		"los corgis"
 	],
 	"dislikes": [
-		"cebolla",
-		"aguacate",
-		"agua"
+		"la cebolla",
+		"el aguacate",
+		"el agua"
 	]
 }, {
 	"nombre": "Erick",
 	"apellido": "Belcebú",
-	"birth": "20/04/1998",
+	"birth": "20/04/1400",
 	"likes": [
-		"pentagramas",
-		"666",
-		"paganismo"
+		"los pentagramas",
+		"el número 666",
+		"el paganismo"
 	],
 	"dislikes": [
-		"inquisición",
-		"cruces",
-		"agua"
+		"la inquisición",
+		"las cruces",
+		"el agua"
 	]
 }]

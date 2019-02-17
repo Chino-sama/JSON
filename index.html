@@ -22,21 +22,27 @@
 
 					let html = '';
 					res.forEach((item) => {
+						let likes = '';
+						let dislikes = '';
+						item.likes.forEach((like, index) => {
+							if (index === item.likes.length - 2)
+								return likes += like;
+							else if (index === item.likes.length - 1)
+								return likes += ' y ' + like;
+							else 
+								return likes += like + ', ';
+						});
+						item.dislikes.forEach((dis, index) => {
+							if (index === item.likes.length - 2)
+								return dislikes += dis;
+							else if (index === item.dislikes.length - 1)
+								return dislikes += ' y ' + dis;
+							else 
+								return dislikes += dis + ', ';
+						})
 						html += '<p>';
-						html += 
-							item.nombre + 
-							' ' + 
-							item.apellido +
-							' nació el' +
-							item.birth +
-							' ' +
-							item.likes.forEach((like) => {
-								return like + 'y ';
-							}) +
-							item.dislikes.forEach((dis) => {
-								return dis + 'y ';
-							})
-¡						html += '</p>';
+						html += `${item.nombre} ${item.apellido} nació el ${item.birth}. Le gusta ${likes}. No le gusta ${dislikes}`;
+						html += '</p>';
 					});
 					emptyDiv.insertAdjacentHTML('beforeend', html);
 					// esconder el botón
