@@ -36,12 +36,12 @@
 							if (index === item.likes.length - 2)
 								return dislikes += dis;
 							else if (index === item.dislikes.length - 1)
-								return dislikes += ' y ' + dis;
+								return dislikes += ' ni ' + dis;
 							else 
 								return dislikes += dis + ', ';
 						})
 						html += '<p>';
-						html += `${item.nombre} ${item.apellido} nació el ${item.birth}. Le gusta ${likes}. No le gusta ${dislikes}`;
+						html += `${item.nombre} ${item.apellido} nació el ${item.birth}. Le gusta ${likes}. No le gusta ${dislikes}.`;
 						html += '</p>';
 					});
 					emptyDiv.insertAdjacentHTML('beforeend', html);
@@ -54,8 +54,46 @@
 				}
 			}
 
+			xhr.onerror = function () {
+				alert("No pues la conexión falló T_T");
+			}
+
 			// enviar petición
 			xhr.send();
+		}
+
+		function postCat() {
+			let xhr = new XMLHttpRequest();
+			
+			xhr.open('POST', 'http://10.24.43.221:3000/kittens');
+
+			xhr.setRequestHeader("content-type", "application/json");
+
+			xhr.onload = function () {
+				if (this.readyState === 4 && this.status === 201) {
+					alert('Yay! Se creó el gatito');
+				} else {
+					let error = JSON.parse(this.response);
+					alert('No ps no se pudo crear T_T Error: ' + this.status + '. ' + error.error);
+				}
+			}
+			xhr.onerror = function () {
+				alert("No pues la conexión falló T_T");
+			}
+
+			let name = document.getElementById("name").value;
+			let cuteness = document.getElementById("cuteness").value;
+			let color = document.getElementById("color").value;
+			let owner = document.getElementById("owner").value;
+			let explodes = document.getElementById("explodes").checked;
+			let data = {
+				name,
+				cuteness,
+				color,
+				owner,
+				explodes
+			}
+			xhr.send(JSON.stringify(data));
 		}
 	</script>
 </head>
@@ -67,6 +105,24 @@
 	</button>
 	<div id="loaded-info">
 		
+	</div>
+	<div>
+		<h5>Name</h5>
+		<input id="name" type="text">
+		<h5>Cuteness</h5>
+		<input id="cuteness" type="number">
+		<h5>Color</h5>
+		<input id="color" type="text">
+		<h5>Owner</h5>
+		<input id="owner" type="text">
+		<br>
+		<input id="explodes" type="checkbox">
+		<h5 class="inline">Explodes</h5>
+		<br>
+		<br>
+		<button id="catBtn" onclick="postCat()">
+			Crear Gato
+		</button>
 	</div>
 </body>
 </html>
